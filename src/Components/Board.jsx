@@ -1,19 +1,7 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import Square from "./Square";
 
-const Board = () => {
-  const [sqaures, setSquares] = useState(Array(9).fill(null));
-  const [isX, setIsX] = useState(true);
-
-  const winner = calculateWinner(sqaures);
-  let status;
-
-  if (winner) {
-    status = "Winner: " + winner;
-  } else {
-    status = "Next Player: " + (isX ? "X" : "O");
-  }
-
+const Board = ({ sqaures, isX, handlePlay }) => {
   const handleSquare = (i) => {
     if (calculateWinner(sqaures) || sqaures[i]) {
       return;
@@ -24,9 +12,18 @@ const Board = () => {
     } else {
       nextSquares[i] = "0";
     }
-    setSquares(nextSquares);
-    setIsX(!isX);
+
+    handlePlay(nextSquares);
   };
+
+  const winner = calculateWinner(sqaures);
+  let status;
+
+  if (winner) {
+    status = "Winner: " + winner;
+  } else {
+    status = "Next Player: " + (isX ? "X" : "O");
+  }
   return (
     <>
       <div>{status}</div>
