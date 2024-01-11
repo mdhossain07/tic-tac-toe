@@ -1,14 +1,10 @@
 /* eslint-disable react/prop-types */
-const Square = ({ value }) => {
-  const handleSquare = () => {
-    console.log("clicked....");
-  };
-
+const Square = ({ value, handleSquare }) => {
   return (
     <>
       <button
         onClick={handleSquare}
-        className="w-12 h-12 border border-gray-400 m-1"
+        className="w-14 h-14 border border-gray-400 m-1 text-xl"
       >
         {value}
       </button>
