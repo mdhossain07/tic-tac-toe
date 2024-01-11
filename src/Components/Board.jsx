@@ -26,7 +26,9 @@ const Board = ({ sqaures, isX, handlePlay }) => {
   }
   return (
     <>
-      <div>{status}</div>
+      <div>
+        <h2 className="text-xl p-5">{status}</h2>
+      </div>
       <div className="flex">
         <Square value={sqaures[0]} handleSquare={() => handleSquare(0)} />
         <Square value={sqaures[1]} handleSquare={() => handleSquare(1)} />

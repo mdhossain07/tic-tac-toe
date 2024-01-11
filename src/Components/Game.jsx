@@ -27,12 +27,14 @@ const Game = () => {
 
     return (
       <li key={index}>
-        <button onClick={() => jumpTo(index)}>{description}</button>
+        <button className="text-xl p-5" onClick={() => jumpTo(index)}>
+          {description}
+        </button>
       </li>
     );
   });
   return (
-    <>
+    <div className="flex gap-10 justify-center">
       <div>
         <Board sqaures={currentSquares} isX={isX} handlePlay={handlePlay} />
       </div>
@@ -40,7 +42,7 @@ const Game = () => {
       <div>
         <ol>{moves}</ol>
       </div>
-    </>
+    </div>
   );
 };
 
